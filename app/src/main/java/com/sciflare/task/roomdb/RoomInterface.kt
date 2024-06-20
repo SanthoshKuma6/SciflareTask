@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RoomInterface {
-
     @Insert
     suspend fun insert(move:SaveData)
 

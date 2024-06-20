@@ -9,6 +9,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+
+/**
+ * retrofit is type safe http client  fro android and developed by java square
+ * making network request to retrofit restful webservice using anotations
+ * retrofit provide list of anatations tpo each http method those are GET PUT DELETE PATCH POST
+ */
 object RetrofitApi {
 
     private var retrofit: Retrofit? = null
