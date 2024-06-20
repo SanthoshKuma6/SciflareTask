@@ -62,8 +62,10 @@ class MainActivity : AppCompatActivity() {
                     addProperty("mobile", mainActivity.tvMobile.text.toString())
                     addProperty("gender", mainActivity.gender.text.toString())
                 }
+
                 lifecycleScope.launch {
                     viewModel.sendDetails(jsonObject)
+
                 }
                 viewModel.mutableLiveDataResponse.observe(this@MainActivity, createDataListObserver)
                 Toast.makeText(this@MainActivity,"Save successfully", Toast.LENGTH_SHORT).show()

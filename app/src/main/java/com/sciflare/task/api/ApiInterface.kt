@@ -9,9 +9,14 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 
+/**
+ * interface in android is a contract that defines a set of method without implementing them
+ */
 interface ApiInterface {
     @POST("create")
     suspend fun sendDetails(@Body params: JsonObject): Response<Create>
+
+
 
   @GET("create")
     suspend fun getDetails(): Response<List<GetDetails.GetDetailsItem>>

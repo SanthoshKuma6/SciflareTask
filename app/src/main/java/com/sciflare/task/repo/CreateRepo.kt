@@ -8,14 +8,16 @@ import com.sciflare.task.api.Response
 import com.sciflare.task.api.RetrofitApi
 import com.sciflare.task.model.Create
 import com.sciflare.task.model.GetDetails
+import com.sciflare.task.model.SaveData
+import com.sciflare.task.roomdb.RoomDao
 import okhttp3.ResponseBody
 import org.json.JSONException
 import org.json.JSONObject
 
-
-
+/**
+ * repository is design pattern that provides clean separation  between data layer and the rest of the app
+ */
 class CreateRepo {
-
     private val serverApi by lazy {
         RetrofitApi.retrofitInstance().create(ApiInterface::class.java)
     }
@@ -23,7 +25,19 @@ class CreateRepo {
         val errorJson = JSONObject(responseBody.string())
         return errorJson.getString("message")
     }
+
+
+    /**
+     * it will not invoke
+     * its observe callback unless activity or fragment is receive OnStart Method
+     *
+     */
+
     val mutableLiveData = MutableLiveData<Response<Create>>()
+
+
+
+
     suspend fun sendDetails(json: JsonObject){
         mutableLiveData.value = Response.Loading(true)
         try {
@@ -76,4 +90,10 @@ class CreateRepo {
             Log.d("exc", exc.toString())
         }
     }
+
+    private val roomDao:RoomDao?=null
+
+    suspend fun insert(saveData: SaveData) = roomDao!!.roomInterface().insert(saveData)
+
+    fun getList() = roomDao!!.roomInterface().getList()
 }
