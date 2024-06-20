@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SciflareTask1</string>
+    <string name="list_of_local_db">List of Local DB</string>
+    <string name="enter_your_gender">Enter Your Gender</string>
+    <string name="enter_your_mobile">Enter Your Mobile</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_name">Enter Your Name</string>
+</resources>
