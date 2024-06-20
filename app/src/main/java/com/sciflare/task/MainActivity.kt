@@ -59,8 +59,8 @@ class MainActivity : AppCompatActivity() {
                 val jsonObject = JsonObject().apply {
                     addProperty("name", mainActivity.tvName.text.toString())
                     addProperty("email", mainActivity.tvEmail.text.toString())
-                    addProperty("Mobile", mainActivity.tvMobile.text.toString())
-                    addProperty("Gender", mainActivity.gender.text.toString())
+                    addProperty("mobile", mainActivity.tvMobile.text.toString())
+                    addProperty("gender", mainActivity.gender.text.toString())
                 }
                 lifecycleScope.launch {
                     viewModel.sendDetails(jsonObject)
@@ -95,7 +95,6 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.getMutableLiveData.observe(this,getObservableData)
     }
-    @SuppressLint("NotifyDataSetChanged")
     private val getObservableData =Observer<Response<List<GetDetails.GetDetailsItem>>>{
         when (it) {
             is Response.Success -> {
